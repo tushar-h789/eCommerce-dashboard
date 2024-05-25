@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 // import CkEditor from "./CkEditor";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { useSelector } from "react-redux";
 // const { TextArea } = Input;
 
 const AddProduct = () => {
@@ -18,6 +19,9 @@ const AddProduct = () => {
   // const [productType, setProductType] = useState(null);
   let [description, setDescription] = useState("");
 
+  // const subCategoryData = useSelector(state => state.subCategory)
+  // console.log(subCategoryData);
+
   const onFinishMain = async (values) => {
     // console.log(values);
     const productData = {
@@ -27,7 +31,7 @@ const AddProduct = () => {
       regularprice: values.regularprice,
       salesprice: values.salesprice,
       quantity: values.quantity,
-      subcategory: values.subcategory,
+      // subCategoryData: subCategoryData,
     };
     console.log(productData);
 

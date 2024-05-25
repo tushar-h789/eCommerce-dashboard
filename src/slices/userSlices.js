@@ -8,19 +8,18 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    activeUser: (state, actions) => {
-      state.value = actions.payload
+    activeUser: (state, action) => {
+      state.value = action.payload
+      localStorage.setItem("user", JSON.stringify(action.payload))
     },
-    decrement: (state) => {
-      state.value -= 1
-    },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload
+    logoutUser: (state) => {
+      state.value = null
+      localStorage.removeItem("user")
     },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { activeUser } = userSlice.actions
+export const { activeUser, logoutUser } = userSlice.actions
 
 export default userSlice.reducer

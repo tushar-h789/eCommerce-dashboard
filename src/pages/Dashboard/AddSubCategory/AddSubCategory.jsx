@@ -1,13 +1,20 @@
 import { Alert, Button, Form, Input, Select, Space } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
+import { addSubCategory } from "../../../slices/subCategorySlices";
 
 const AddSubCategory = () => {
   // State to manage error messages
   const [errorMessage, setErrorMessage] = useState(null);
   const [categories, setCategories] = useState([]);
   const [categoryId, setCategoryId] = useState([]);
+
+  // send data to redux
+  // const dispatch = useDispatch();
+  // const subCategories = useSelector((state) => state.subCategory.subCategories); // Correct selector
+  // console.log(subCategories);
 
   const handleChange = (value) => {
     console.log(`selected ${value}`);
@@ -17,16 +24,19 @@ const AddSubCategory = () => {
   // Function to handle category creation
   const onFinish = async (values) => {
     console.log("Success:", values.subCategoryName);
-    const categoryData = {
-      name: values.subCategoryName,
-      categoryId: categoryId,
-    };
+    // const categoryData = {
+    //   name: values.subCategoryName,
+    //   categoryId: categoryId,
+    // };
 
     try {
       // Send a request to create a new category
       const response = await axios.post(
         "http://localhost:7000/api/v1/products/createsubcategory",
-        categoryData
+        {
+          name: values.subCategoryName,
+          categoryId: categoryId,
+        }
       );
 
       console.log(response);
@@ -50,6 +60,8 @@ const AddSubCategory = () => {
         });
         setErrorMessage(null);
       }
+      // Dispatch the addSubCategory action to update the Redux store
+      // dispatch(addSubCategory(response.data));
     } catch (error) {
       console.error("Error creating sub category or sending request", error);
       setErrorMessage("An error occurred. Please try again later.");
