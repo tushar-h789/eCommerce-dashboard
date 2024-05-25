@@ -25,7 +25,7 @@ const SiteBar = () => {
   const [openKeys, setOpenKeys] = useState(["sub1"]);
   const navigate = useNavigate();
   const userData = useSelector((state) => state.activeUser.value);
-  console.log(userData);
+  // console.log(userData);
 
   const onOpenChange = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);

@@ -145,6 +145,8 @@ const ViewCategory = () => {
           "http://localhost:7000/api/v1/products/allcategory"
         );
 
+        // console.log(response.data);
+
         // Transform the received data into the desired format
         const transformedData = response.data.data.map((item) => ({
           key: item._id,
@@ -167,6 +169,7 @@ const ViewCategory = () => {
   // Function to handle category approval
   const handleApprove = async (approve) => {
     setLoadingCategoryId(approve.key);
+    // console.log(approve.key);
 
     // Create request payload for category approval
     const editCategoryData = {
