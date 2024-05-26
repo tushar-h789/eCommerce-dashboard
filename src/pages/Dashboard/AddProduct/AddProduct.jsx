@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 // import CkEditor from "./CkEditor";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import { useSelector } from "react-redux";
 // const { TextArea } = Input;
 
 const AddProduct = () => {
