@@ -20,8 +20,8 @@ const AddVariant = () => {
         "http://localhost:7000/api/v1/products/variant",
         {
           name: values.name,
-          avatar: image,
           productId: productId,
+          avatar: image,
           regularprice: values.regularprice,
           salesprice: values.salesprice,
           quantity: values.quantity,
@@ -42,7 +42,7 @@ const AddVariant = () => {
           timer: 1500,
         });
       });
-    console.log(data);
+    console.log("dataaaaaa",data);
   };
 
   // Function to handle form submission failure
@@ -52,12 +52,11 @@ const AddVariant = () => {
 
   // Fetching list of products from the server upon component mount
   useEffect(() => {
-    console.log("running");
     async function getData() {
       let data = await axios.get(
         "http://localhost:7000/api/v1/products/viewproducts"
       );
-      console.log(data.data);
+      // console.log(data.data);
       let arr = [];
       data.data.map((item) => {
         arr.push({

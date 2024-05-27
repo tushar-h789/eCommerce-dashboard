@@ -32,7 +32,7 @@ const AddProduct = () => {
       quantity: values.quantity,
       // subCategoryData: subCategoryData,
     };
-    console.log(productData);
+    // console.log(productData);
 
     const data = await axios
       .post(
